@@ -37,7 +37,7 @@
     <li>
       Projenin dosya dizinine erişin
       <pre>
-        cd Library-App-with-Data-Analyze 
+        cd Letter_index_predict_games
       </pre>
     </li>
     <li>
