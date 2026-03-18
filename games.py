@@ -60,7 +60,61 @@ def first_game_choose():
             if not back_game():
                 return 
 
+def second_game_choose():
+    while True:
+        print("/------2.Oyun Modu-------/") 
 
+        try:
+            game_right = int(input("Kaç Defa Oynamak İstiyorsunuz ? : ")) 
+
+            computer_score = player_score = 0 
+            i = 1
+
+            if game_right < 0:
+                print("Negatif Sayılar Oyun Hakkını Temsil Edemez Lütfen Yeniden Deneyiniz !")
+                continue 
+        except ValueError:
+            print("Lütfen Alanı Boş Bırakmayınız ve Girdileri Doğru Giriniz!")
+            continue 
+        except KeyboardInterrupt:
+            print("Menüye Yönlendiriliyorsunuz...")
+            return 
+        else:
+            while i <= game_right:
+                computer_random_index = np.random.randint(1,29) 
+                computer_random_choose_letter = index_data[computer_random_index] 
+
+                try:
+                    player_input_letter = input(f"{computer_random_index}.İndex Hangi Harfe Karşılık Gelir: ").upper().strip()
+                except KeyboardInterrupt:
+                    print("Oyundan Çıkış Yaptınız ve Menüye Yönlendiriliyorsunuz...")
+                    return 
+
+                if len(player_input_letter) == 0:
+                    print("Lütfen Bu Alanı Doldurunuz.") 
+                    continue 
+
+                if player_input_letter == computer_random_choose_letter:
+                    print("Oyuncu Kazandı ve Oyuncuya 5 puan verildi.") 
+                    player_score += 5 
+                else:
+                    print("Oyunu Bilgisayar Kazandı ve Bilgisayara 5 puan verildi.") 
+                    computer_score += 5 
+
+                i += 1
+            
+            if computer_score > player_score:
+                print(f"Skor Bilgisayar : {computer_score} - Oyuncu : {player_score}\n Oyunu Bilgisayar Kazandı") 
+                print("Yeniden Oynamak İster misiniz ? ") 
+            elif computer_score == player_score:
+                print(f"Skor Bilgisayar : {computer_score} - Oyuncu : {player_score}\n Oyun Berabere!")
+                print("Yeniden Oynamak İster misiniz ? ") 
+            elif player_score > computer_score:
+                print(f"Skor Bilgisayar : {computer_score} - Oyuncu : {player_score}\n Oyunu Oyuncu Kazandı")
+                print("Yeniden Oynamak İster misiniz ?") 
+            
+            if not back_game():
+                return 
           
 def game_choose(): 
     while True:
@@ -83,7 +137,7 @@ def game_choose():
                 first_game_choose()
             elif game_mode == 2:
                 print("2.Mod Oyun Tercihi Yaptınız!") 
-                break 
+                second_game_choose()
             elif game_mode == 3:
                 print("Menüye Yönlendiriliyorsunuz...")
                 return
