@@ -1,5 +1,3 @@
-import numpy as np 
-
 index_data = {
     "A":1,
     "B":2,
