@@ -1,5 +1,6 @@
 import numpy as np 
 from indexes import index_data
+from back_game import back_game
 
 def first_game_choose():
     while True:
@@ -56,11 +57,14 @@ def first_game_choose():
                 print(f"Skor Bilgisayar : {computer_score} - Oyuncu : {player_score}\n Oyunu Oyuncu Kazandı")
                 print("Yeniden Oynamak İster misiniz ?") 
             
-            return
+            if not back_game():
+                return 
 
+
+          
 def game_choose(): 
     while True:
-        print("Oyuna Hoşgeldiniz! Oyun Modu Seçiniz") 
+        print("Oyuna Hoşgeldiniz! Oyun Modu Seçiniz (1 ve 2) Menü İçin 3 e basınız") 
 
         try:
             game_mode = int(input("Oyun Modu Seçiniz: ")) 
@@ -71,7 +75,7 @@ def game_choose():
             print("\nMenüye Yönlendiriliyorsunuz...")
             break
         else:
-            if game_mode not in [1,2]:
+            if game_mode not in [1,2,3]:
                 print("HATA! Lütfen Doğru Seçim Yapınız!")
                 continue 
             elif game_mode == 1:
@@ -80,4 +84,7 @@ def game_choose():
             elif game_mode == 2:
                 print("2.Mod Oyun Tercihi Yaptınız!") 
                 break 
+            elif game_mode == 3:
+                print("Menüye Yönlendiriliyorsunuz...")
+                return
 
