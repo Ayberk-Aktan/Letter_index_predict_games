@@ -20,9 +20,13 @@ def first_game_choose():
             return 
         else:
             while i <= game_right:
-                computer_random_index = np.random.randint(1,29)
+                computer_random_index = np.random.randint(1,30)
 
-                computer_choose_letter = index_data[computer_random_index] 
+                try:
+                    computer_choose_letter = index_data[computer_random_index] 
+                except KeyError:
+                    print("Aranılan Veri Bulunamadı!")
+                    continue
                 
                 try:
                     player_index_predict = int(input(f"{computer_choose_letter} Sence Kaçıncı İndextedir ? : ")) 
@@ -81,8 +85,14 @@ def second_game_choose():
             return 
         else:
             while i <= game_right:
-                computer_random_index = np.random.randint(1,29) 
-                computer_random_choose_letter = index_data[computer_random_index] 
+                computer_random_index = np.random.randint(1,30) 
+
+                try:
+                    computer_random_choose_letter = index_data[computer_random_index] 
+                except KeyError:
+                    print("Aranılan Veri Bulunamadı!") 
+                    continue
+                
 
                 try:
                     player_input_letter = input(f"{computer_random_index}.İndex Hangi Harfe Karşılık Gelir: ").upper().strip()
