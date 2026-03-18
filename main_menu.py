@@ -1,34 +1,4 @@
-index_data = {
-    "A":1,
-    "B":2,
-    "C":3,
-    "Ç":4,
-    "D":5,
-    "E":6,
-    "F":7,
-    "G":8,
-    "Ğ":9,
-    "H":10,
-    "I":11,
-    "İ":12,
-    "J":13,
-    "K":14,
-    "L":15,
-    "M":16,
-    "N":17,
-    "O":18,
-    "Ö":19,
-    "P":20,
-    "R":21,
-    "S":22,
-    "Ş":23,
-    "T":24,
-    "U":25,
-    "Ü":26,
-    "V":27,
-    "Y":28,
-    "Z":29
-}
+from games import game_choose
 
 def menu():
     while True:
@@ -53,7 +23,7 @@ def menu():
                 continue 
             elif menu_options == 1:
                 print("Oyuna Başlıyorsunuz")
-                break
+                game_choose()
             elif menu_options == 2:
                 print("Nasıl Oynanır ?") 
                 print("""
